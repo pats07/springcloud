@@ -22,5 +22,11 @@ public class UserService {
 		return users;
 	}
 	
+	public User getUserById(Integer id) {
+		if(users.get(id) != null) {
+			throw new RuntimeException();
+		}
+		return users.get(id);
+	}
 	
 }
