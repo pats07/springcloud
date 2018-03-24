@@ -2,12 +2,17 @@ package com.webservice.domain;
 
 import java.util.Date;
 
+import javax.validation.constraints.Size;
+
 public class User {
 
 	private Integer id;
+	
+	@Size(min = 5, message = "Username should be greater than 5 characters.")
 	private String name;
 	private Date dateOfBirth;
 
+	public User(){}
 	public User(Integer id, String name, Date dateOfBirth) {
 		super();
 		this.id = id;
