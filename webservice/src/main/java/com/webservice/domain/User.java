@@ -4,12 +4,23 @@ import java.util.Date;
 
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@JsonFilter("dateFilter")
+@ApiModel(description="All details of user")
 public class User {
 
 	private Integer id;
 	
 	@Size(min = 5, message = "Username should be greater than 5 characters.")
+	@ApiModelProperty(notes="Username should be greater than 5 characters.")
 	private String name;
+	
+	//@JsonIgnore
 	private Date dateOfBirth;
 
 	public User(){}
